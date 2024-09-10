@@ -15,15 +15,6 @@ export function Main() {
         { key: 27, name: 'Kalafioras', price: 9000, amount: 100 },
     ];
 
-    // const products = [];
-
-    // for (const product of productList) {
-    //     if (product.amount > 0) {
-    //         products.push(<Product key={product.key} name={product.name} price={product.price} amount={product.amount} />);
-    //         products.push(<Product {...product} />);
-    //     }
-    // }
-
     return (
         <main style={mainStyle}>
             <h1>Zuikio parduotuve</h1>
