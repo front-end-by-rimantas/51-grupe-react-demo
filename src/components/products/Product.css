@@ -1,0 +1,15 @@
+li {
+  display: flex;
+  padding: 1rem;
+  background-color: #fff;
+}
+li:hover {
+  background-color: #eee;
+}
+li > img {
+}
+li > p {
+}
+.price {
+  margin-left: auto;
+}
