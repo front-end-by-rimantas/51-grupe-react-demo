@@ -1,21 +1,30 @@
-ul > li {
+.product {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
   padding: 1rem;
   background-color: #fff;
   font-size: 1.2rem;
 }
-ul > li:hover {
+.product:hover {
   background-color: #eee;
 }
-ul > li > img {
+.img {
+  width: 3rem;
+  height: 3rem;
 }
-ul > li > p {
+.title {
+  font-style: italic;
 }
-ul > li > div {
+.actions {
   display: flex;
   gap: 0.5rem;
 }
-ul > li > div > button {
+.btn {
   padding: 0.5rem;
+}
+.count {
+  color: #f00;
+}
+.price {
+  font-weight: bold;
 }

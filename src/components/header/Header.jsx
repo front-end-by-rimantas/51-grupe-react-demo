@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from './Header.module.css';
 
 const headerStyle = {
     fontSize: '20px',
@@ -22,7 +23,7 @@ export function Header() {
 
     return (
         <header style={headerStyle}>
-            HEADER CONTENT: {count} like
+            <span className={style.title}>HEADER CONTENT: {count} like</span>
             <button onClick={handleLikeClick} type="button">👍</button>
             <button onClick={handleDislikeClick} type="button">👎</button>
         </header>

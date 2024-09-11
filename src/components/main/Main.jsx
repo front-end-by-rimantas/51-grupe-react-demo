@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Product } from "../products/Product";
+import productStyle from '../products/Product.module.css';
+import mainStyle from './Main.module.css';
 
-const mainStyle = {
+const mainInlineStyle = {
     backgroundColor: 'green',
 };
 
@@ -27,13 +29,15 @@ export function Main() {
     function updateProductCount(productName, newCount) {
         // neteisinga, bet i "tema"
         // productsState[productName] = newCount;
+
+        console.log(productName, newCount);
     }
 
     return (
-        <main style={mainStyle}>
-            <h1>Zuikio parduotuve</h1>
+        <main style={mainInlineStyle}>
+            <h1 className={mainStyle.title}>Zuikio parduotuve</h1>
             <ul>
-                <li>
+                <li className={productStyle.product}>
                     <p>Img</p>
                     <p>Pavadinimas</p>
                     <p>Kiekis</p>
@@ -43,9 +47,9 @@ export function Main() {
                 {
                     productList
                         .filter(product => product.amount > 0)
-                        .map(product => <Product {...product} key={product.key} />)
+                        .map(product => <Product {...product} key={product.key} updateProductCount={updateProductCount} />)
                 }
-                <li>
+                <li className={productStyle.product}>
                     <p></p>
                     <p></p>
                     <p></p>
