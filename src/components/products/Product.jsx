@@ -1,21 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './Product.module.css';
 
 /* eslint-disable react/prop-types */
 export function Product({ name, price, amount, updateProductCount }) {
     const [count, setCount] = useState(0);
 
+    // pasileidzia kas kart, kai yra perpiesiamas komponentas
+    // useEffect(() => {
+    //     console.log(11111111111);
+    // });
+
+    // pasileidzia tik pirma karta piesiant komponenta
+    // useEffect(() => {
+    //     console.log(222222222222);
+    // }, []);
+
+    // pasileidzia kai pasikeicia nuroddytu kintamuju reiksmes
+    useEffect(() => {
+        updateProductCount(name, count);
+    }, [count]);
+
     function addOne() {
         if (amount > count) {
-            setCount(count + 1);
-            updateProductCount(name, count + 1);
+            setCount(pre => pre + 1);
         }
     }
 
     function removeOne() {
         if (count > 0) {
-            setCount(count - 1);
-            updateProductCount(name, count - 1);
+            setCount(pre => pre - 1);
         }
     }
 

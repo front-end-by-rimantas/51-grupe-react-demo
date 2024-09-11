@@ -25,12 +25,22 @@ for (const product of productList) {
 
 export function Main() {
     const [productsState, setProductsState] = useState(initialProductsState);
+    let totalCount = 0;
+    let totalPrice = 0;
+
+    for (const key in productsState) {
+        totalCount += productsState[key];
+    }
+
+    for (const product of productList) {
+        totalPrice += product.price * productsState[product.name];
+    }
 
     function updateProductCount(productName, newCount) {
-        // neteisinga, bet i "tema"
-        // productsState[productName] = newCount;
-
-        console.log(productName, newCount);
+        setProductsState({
+            ...productsState,
+            [productName]: newCount,
+        });
     }
 
     return (
@@ -51,10 +61,10 @@ export function Main() {
                 }
                 <li className={productStyle.product}>
                     <p></p>
-                    <p></p>
-                    <p></p>
                     <p>Total:</p>
-                    <p>0 eur</p>
+                    <p>{totalCount} vnt</p>
+                    <p></p>
+                    <p>{totalPrice.toFixed(2)} eur</p>
                 </li>
             </ul>
         </main>
